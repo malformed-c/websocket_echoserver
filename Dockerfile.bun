@@ -3,8 +3,8 @@ FROM oven/bun:1.0-alpine AS build
 WORKDIR /app
 
 # Copy package.json and bun.lockb to install dependencies
-COPY package.json bun.lockb ./
-RUN bun install --frozen-lockfile
+COPY package.json ./
+RUN bun install
 
 # Copy the rest of the application source code
 COPY . .
