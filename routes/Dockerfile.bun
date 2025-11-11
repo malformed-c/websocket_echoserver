@@ -1,0 +1,26 @@
+# Stage 1: Build the application
+FROM oven/bun:1.0-alpine AS build
+WORKDIR /app
+
+# Copy package.json and bun.lockb to install dependencies
+COPY package.json bun.lockb ./
+RUN bun install --frozen-lockfile
+
+# Copy the rest of the application source code
+COPY . .
+
+# Build the application
+RUN bun run build
+
+# Stage 2: Create the production image
+FROM oven/bun:1.0-alpine
+WORKDIR /app
+
+# Copy the built application from the build stage
+COPY --from=build /app/.output .
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Set the command to run the application
+CMD ["bun", "./server/index.mjs"]

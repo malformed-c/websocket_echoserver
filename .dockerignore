@@ -1,0 +1,16 @@
+# Ignore build artifacts
+.output
+dist
+build
+
+# Ignore dependencies
+node_modules
+
+# Ignore version control
+.git
+.gitignore
+
+# Ignore Docker related files
+Dockerfile.node
+Dockerfile.bun
+.dockerignore
