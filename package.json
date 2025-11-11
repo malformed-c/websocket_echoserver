@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "nitro dev",
+    "build": "nitro build"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "nitro": "latest",
+    "vite": "^7.2.2"
+  },
+  "name": "websocket",
+  "private": true,
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
